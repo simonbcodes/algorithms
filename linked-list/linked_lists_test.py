@@ -3,27 +3,29 @@ from singly_linked_list import LinkedList, Node
 
 @pytest.fixture
 def empty_linked_list():
-    """ Return an empty LinkedList. """
+    """Return an empty LinkedList."""
     return LinkedList()
 
 @pytest.fixture
 def initialized_linked_list():
-    """ Return a LinkedList with an initialized head. """
+    """Return a LinkedList with an initialized head."""
     return LinkedList(10)
 
 def construct_linked_list(l):
+    """Construct a linked list given a list."""
     ll = LinkedList()
     for i in l:
         ll.append(i)
     return ll
 
-def ll_to_arr(ll):
-    arr = []
+def ll_to_list(ll):
+    """Convert a LinkedList into a list"""
+    list = []
     cur = ll.head
     while cur != None:
-        arr.append(cur.data)
+        list.append(cur.data)
         cur = cur.next
-    return arr
+    return list
 
 @pytest.fixture
 def one_to_ten_linked_list():
@@ -54,4 +56,4 @@ def test_initialized_linked_list(initialized_linked_list):
 def test_delete_by_value(init, delete, output):
     ll = construct_linked_list(init)
     ll.delete_by_value(delete)
-    assert ll_to_arr(ll) == output
+    assert ll_to_list(ll) == output
