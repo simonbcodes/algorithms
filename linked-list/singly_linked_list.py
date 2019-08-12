@@ -21,7 +21,9 @@ class LinkedList:
         return ','.join(ll_to_arr)
 
     def append(self, data):
-        """ Append data to the end of a LinkedList. """
+        """ Append data to the end of a LinkedList.
+            Runtime: O(1) if we have a reference to the end, O(n) otherwise
+        """
         if self.head == None:
             self.head = Node(data)
         else:
@@ -31,7 +33,9 @@ class LinkedList:
             cur.next = Node(data)
 
     def prepend(self, data):
-        """ Prepend data to the beginning of a LinkedList. """
+        """ Prepend data to the beginning of a LinkedList.
+            Runtime: O(1)
+        """
         if self.head == None:
             self.head = Node(data)
         else:
@@ -40,7 +44,12 @@ class LinkedList:
             self.head = cur
 
     def delete_by_value(self, data):
-        """ Delete first Node with a given value. """
+        """ Delete first Node with a given value.
+            Runtime: O(1) if we have a reference to the node to delete.
+                    beginning of list: O(1).
+                    middle of list: search time (~O(n)) + O(1).
+                    end of list: O(n) with no reference to end of list.
+        """
         if self.head == None:
             return
         if self.head.data == data:
