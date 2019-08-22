@@ -4,9 +4,11 @@ class Stack:
         """ Initialize the stack to be a an empty list."""
         self.stack = []
 
+
     def size(self):
         """Return the size of the stack."""
         return len(self.stack)
+
 
     def push(self, data):
         """Push data to the top of the stack.
@@ -14,6 +16,7 @@ class Stack:
         """
         if data:
             self.stack.append(data)
+
 
     def pop(self):
         """Pop data from the top of the stack.

@@ -4,6 +4,7 @@ class Node:
         self.next = None
         self.data = data
 
+
 class LinkedList:
     """ Singly LinkedList, made up of connected Nodes. """
     def __init__(self, data=None):
@@ -15,7 +16,7 @@ class LinkedList:
     def __repr__(self):
         ll_to_arr = []
         cur = self.head
-        while cur != None:
+        while cur is not None:
             ll_to_arr.append(str(cur.data))
             cur = cur.next
         return ','.join(ll_to_arr)
@@ -24,11 +25,11 @@ class LinkedList:
         """ Append data to the end of a LinkedList.
             Runtime: O(1) if we have a reference to the end, O(n) otherwise
         """
-        if self.head == None:
+        if self.head is None:
             self.head = Node(data)
         else:
             cur = self.head
-            while(cur.next != None):
+            while(cur.next is not None):
                 cur = cur.next
             cur.next = Node(data)
 
@@ -36,7 +37,7 @@ class LinkedList:
         """ Prepend data to the beginning of a LinkedList.
             Runtime: O(1)
         """
-        if self.head == None:
+        if self.head is None:
             self.head = Node(data)
         else:
             cur = Node(data)
@@ -50,15 +51,15 @@ class LinkedList:
                     middle of list: search time (~O(n)) + O(1).
                     end of list: O(n) with no reference to end of list.
         """
-        if self.head == None:
+        if self.head is None:
             return
         if self.head.data == data:
             self.head = self.head.next
             return
-        if self.head.next == None:
+        if self.head.next is None:
             return
         cur = self.head
-        while cur.next != None and cur.next.data != data:
+        while cur.next is not None and cur.next.data != data:
             cur = cur.next
         if cur.next:
             if cur.next.data == data:
