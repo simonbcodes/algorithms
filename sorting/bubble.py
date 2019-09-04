@@ -3,9 +3,9 @@ sorting/bubble.py
 Bubble Sort algorithm implementation
 
 High Level Description:
-For each element in the list, swap it with its adjacent element until it
-is in its correct place. This algorithm doesn't know if the list is already
-sorted, so it may go through more passes than necessary.
+For each element in the list, iterate through the remaining elements after
+it and swap if the element is smaller. This 'bubbles up' the elements into
+their correct indexes.
 
 Time Complexity:
 Since the algorithms iterates through every element, this uses O(n) time.
@@ -18,5 +18,5 @@ def bubble_sort(lst):
         for j, _ in enumerate(lst[i:]):
             j += i
             if lst[i] > lst[j]:
-                lst[i], lst[j] = lst[j], lst[i]  # swap
+                lst[i], lst[j] = lst[j], lst[i]
     return lst
